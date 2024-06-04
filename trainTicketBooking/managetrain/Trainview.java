@@ -25,7 +25,7 @@ public class Trainview {
         System.out.println("Enter the number of seats");
         int seats=sc.nextInt();
         System.out.println("Enter the amount");
-        int amount=seats;
+        int amount=sc.nextInt();
         if(trainmodel.addTrain(number,name,seats,amount))
             System.out.println("train added sucessfully");
     }
@@ -61,9 +61,10 @@ public class Trainview {
             }
             System.out.println("Train Number :"+allTrain.get(i).getNumber());
             System.out.println("Train Number :"+allTrain.get(i).getName());
-            System.out.println("Train routes :");
+            System.out.print("Train routes :");
             for(int k=0;k<name.size();k++)
-                System.out.print(name.get(k)+",");
+                System.out.print(name.get(k)+"->");
+            System.out.println();
             System.out.println("Seats"+allTrain.get(i).getSeat());
         }
     }

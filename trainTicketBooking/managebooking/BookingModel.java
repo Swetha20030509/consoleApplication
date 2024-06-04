@@ -2,14 +2,19 @@ package trainTicketBooking.managebooking;
 
 import trainTicketBooking.DataLayer2.Database;
 import trainTicketBooking.login.Loginmodel;
+import trainTicketBooking.model.Booking;
+import trainTicketBooking.model.Passenger;
 import trainTicketBooking.model.Route;
 import trainTicketBooking.model.Train;
+import trainTicketBooking.model.User;
 import trainTicketBooking.model.searchResult;
 
 import java.util.ArrayList;
 
 public class BookingModel {
+	BookingView bookingView;
     public BookingModel(BookingView bookingView) {
+    	this.bookingView=bookingView;
     }
 
     public ArrayList<searchResult>  searchTrain(String station, String toStation) {
@@ -49,4 +54,41 @@ public class BookingModel {
         }
         return false;
     }
+
+	public void addPassenger(String name, byte age, String gender) {
+		if(name!=" "&&age>0&&(gender=="female"||gender=="male"||gender=="other"))
+		{
+			Passenger passenger=new Passenger(name,age,gender);
+			Loginmodel.database.addPassenger(passenger);
+		}
+		
+	}
+
+	public void removePassenger(int num) {
+		Loginmodel.database.removePassenger(num);
+		
+	}
+
+	public ArrayList<Passenger> getPassenger() {
+		return Loginmodel.database.getPassenger();
+		
+	}
+
+	public void addBooking(String pnr, ArrayList<Passenger> passenger) {
+		if(passenger.size()>0)
+		{
+		Booking book=new Booking(getUser().getId(),pnr,passenger);
+		Loginmodel.database.addBooking(book);
+		bookingView.sendMessage("BOOKING SUCCESSFULLY !!!!!");
+		}
+		
+	}
+	public User getUser()
+	{
+		return Loginmodel.database.getCurrentUser();
+	}
+	public ArrayList<Booking> getBookingDetail() {
+		
+		return Loginmodel.database.getAllBooking();
+	}
 }

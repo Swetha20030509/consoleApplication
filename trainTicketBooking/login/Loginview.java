@@ -74,9 +74,12 @@ public class Loginview {
     }
 
     private void usermenu() {
+    	while(true)
+    	{
        trainView.showTrains();
        System.out.println("1.Booking");
-       System.out.println("2.exit");
+       System.out.println("2.MyBooking");
+       System.out.println("3.exit");
        int choice=sc.nextInt();
        switch(choice)
        {
@@ -84,8 +87,12 @@ public class Loginview {
                bookingView.booking();
                break;
            case 2:
+        	   bookingView.myBooking();
+        	   break;
+           case 3:
                init();
                break;
        }
+    	}
     }
 }

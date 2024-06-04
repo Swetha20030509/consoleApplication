@@ -17,7 +17,10 @@ public class Loginmodel {
         for(int i=0;i<users.size();i++)
         {
             if(users.get(i).getPhoneNumber().equals(phoneNumber)&&users.get(i).getPassword()==password)
+            {
+            	database.setCurrentUser(users.get(i));
                 return true;
+            }
         }
         return false;
     }
