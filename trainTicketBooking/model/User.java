@@ -7,9 +7,9 @@ public class User {
     String phoneNumber;
 
     public User(int i, String name, String phoneNum, int password) {
-        this.name=name;
-        this.phoneNumber=phoneNum;
-        this.password=password;
+        this.name = name;
+        this.phoneNumber = phoneNum;
+        this.password = password;
 
     }
 

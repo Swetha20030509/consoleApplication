@@ -39,9 +39,9 @@ public class Train {
     }
 
     public Train(int number, String name, int seat, int amount) {
-        this.number=number;
-        this.name=name;
-        this.seat=seat;
-        this.amount=amount;
+        this.number = number;
+        this.name = name;
+        this.seat = seat;
+        this.amount = amount;
     }
 }

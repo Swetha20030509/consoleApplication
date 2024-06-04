@@ -11,11 +11,21 @@ import java.util.ArrayList;
 
 public class Database {
     static int id=0;
-    ArrayList<User> userArrayList=new ArrayList<>();
-    ArrayList<Train> allTrain=new ArrayList<>();
-    ArrayList<Route> routes=new ArrayList<>();
-    ArrayList<Passenger> allpassenger=new ArrayList<>();
-    ArrayList<Booking> allBooking=new ArrayList<>();
+    static ArrayList<User> userArrayList=new ArrayList<>();
+   static ArrayList<Train> allTrain=new ArrayList<>();
+    static ArrayList<Route> routes=new ArrayList<>();
+   static  ArrayList<Passenger> allpassenger=new ArrayList<>();
+   static ArrayList<Booking> allBooking=new ArrayList<>();
+   static ArrayList<Passenger> waitingList=new ArrayList<>();
+
+    public static ArrayList<Passenger> getWaitingList() {
+        return waitingList;
+    }
+
+    public static void setWaitingList(ArrayList<Passenger> waitingList) {
+        Database.waitingList = waitingList;
+    }
+
     User currentuser=null;
     public User getCurrentUser()
     {
@@ -85,5 +95,8 @@ public class Database {
 		currentuser=user;
 		
 	}
-	
+
+    public void addWaitingList(Passenger passenger) {
+        waitingList.add(passenger);
+    }
 }

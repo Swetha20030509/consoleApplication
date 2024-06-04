@@ -30,8 +30,8 @@ public class Route {
     }
 
     public Route(int trainNumber, String name, double time) {
-        this.trainNumber=trainNumber;
-        this.name=name;
-        this.time=time;
+        this.trainNumber = trainNumber;
+        this.name = name;
+        this.time = time;
     }
 }

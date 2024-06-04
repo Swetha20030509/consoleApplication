@@ -11,13 +11,13 @@ public class Loginview {
     Loginmodel loginmodel;
     Trainview trainView;
     BookingView bookingView;
-    Scanner sc=new Scanner(System.in);
-    public Loginview(TrainticketbookingSystem trainticketbookingSystem)
-    {
-        this.trainticketbookingSystem=trainticketbookingSystem;
+    Scanner sc = new Scanner(System.in);
+
+    public Loginview(TrainticketbookingSystem trainticketbookingSystem) {
+        this.trainticketbookingSystem = trainticketbookingSystem;
         trainView = new Trainview();
-        loginmodel=new Loginmodel();
-        bookingView=new BookingView(this);
+        loginmodel = new Loginmodel();
+        bookingView = new BookingView(this);
     }
 
     public void init() {
@@ -35,7 +35,7 @@ public class Loginview {
                     int password = sc.nextInt();
                     if (loginmodel.isUser(phoneNo, password))
                         usermenu();
-                    else if(loginmodel.isAdmin(phoneNo,password))
+                    else if (loginmodel.isAdmin(phoneNo, password))
                         adminmenu();
                     else
                         System.out.println("Invalid user name and password");
@@ -54,7 +54,7 @@ public class Loginview {
     }
 
     private void adminmenu() {
-        while(true) {
+        while (true) {
             System.out.println("1.Add train");
             System.out.println("2.Add route");
             System.out.println("2.Exit");
@@ -73,26 +73,24 @@ public class Loginview {
         }
     }
 
-    private void usermenu() {
-    	while(true)
-    	{
-       trainView.showTrains();
-       System.out.println("1.Booking");
-       System.out.println("2.MyBooking");
-       System.out.println("3.exit");
-       int choice=sc.nextInt();
-       switch(choice)
-       {
-           case 1:
-               bookingView.booking();
-               break;
-           case 2:
-        	   bookingView.myBooking();
-        	   break;
-           case 3:
-               init();
-               break;
-       }
-    	}
+    public void usermenu() {
+        while (true) {
+            trainView.showTrains();
+            System.out.println("1.Booking");
+            System.out.println("2.MyBooking");
+            System.out.println("3.exit");
+            int choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    bookingView.booking();
+                    break;
+                case 2:
+                    bookingView.myBooking();
+                    break;
+                case 3:
+                    init();
+                    break;
+            }
+        }
     }
 }

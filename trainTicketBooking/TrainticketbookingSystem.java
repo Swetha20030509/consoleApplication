@@ -6,18 +6,18 @@ import trainTicketBooking.model.Train;
 public class TrainticketbookingSystem {
     static TrainticketbookingSystem trainticketbookingSystem;
     Loginview loginview;
-    TrainticketbookingSystem()
-    {
-        loginview=new Loginview(this);
+
+    TrainticketbookingSystem() {
+        loginview = new Loginview(this);
     }
-    public static TrainticketbookingSystem getInstance()
-    {
-        if(trainticketbookingSystem==null)
-            trainticketbookingSystem=new TrainticketbookingSystem();
+
+    public static TrainticketbookingSystem getInstance() {
+        if (trainticketbookingSystem == null)
+            trainticketbookingSystem = new TrainticketbookingSystem();
         return trainticketbookingSystem;
     }
-    public static void main(String args[])
-    {
+
+    public static void main(String args[]) {
         getInstance().init();
     }
 
